@@ -1,7 +1,7 @@
 extension Tensor where Scalar == Float {
   @inlinable @inline(__always)
   @differentiable(reverse, wrt: (self), adjoint: adjCustomMean)
-  public func customMean() -> Scalar {
+  public func _mean() -> Scalar {
     return self.mean()
   }
 
@@ -12,7 +12,7 @@ extension Tensor where Scalar == Float {
 
   @inlinable @inline(__always)
   @differentiable(reverse, wrt: (self), adjoint: adjCustomSquared)
-  public func customSquared() -> Tensor<Scalar> {
+  public func _squared() -> Tensor<Scalar> {
     return self.squared()
   }
 
