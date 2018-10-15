@@ -81,3 +81,5 @@ protocol Model {
     //func applied(to: Tensor<Float>) -> Tensor<Float>
     //func loss(for predictions: Tensor<Float>, withLabels labels: Tensor<Float>) -> Float
 }
+
+protocol ParameterGroup : ParameterAggregate {}
