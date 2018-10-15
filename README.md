@@ -27,8 +27,8 @@ repository](https://github.com/google/swift-jupyter/tree/master/docker).
 
 Install the swift-jupyter kernel by following the "Installation Instructions
 With TensorFlow toolchain" in the
-[swift-jupyter readme](https://github.com/google/swift-jupyter). The tutorial
-requires a toolchain build from September 10, 2018 or later.
+[swift-jupyter readme](https://github.com/google/swift-jupyter). **The tutorial currently
+requires exactly the October 5, 2018 toolchain release.**
 
 ### Running
 
