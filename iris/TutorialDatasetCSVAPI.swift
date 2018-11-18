@@ -14,9 +14,9 @@
 /// work even though we do not have general APIs. Soon, we will have general
 /// APIs replacing this.
 
-/// Initialize a (features: Tensor<Float>, labels: Tensor<Int32>) dataset from
+/// Initialize a TensorPair<Tensor<Float>, Tensor<Int32>> dataset from
 /// a CSV file.
-extension Dataset where Element == (Tensor<Float>, Tensor<Int32>) {
+extension Dataset where Element == TensorPair<Tensor<Float>, Tensor<Int32>> {
   @inlinable @inline(__always)
   public init(contentsOfCSVFile: String, hasHeader: Bool,
               featureColumns: [Int],
@@ -45,15 +45,15 @@ extension Dataset where Element == (Tensor<Float>, Tensor<Int32>) {
       fatalError("np.loadtxt result can't be converted to Tensor")
     }
 
-    self.init(elements: (featuresTensor, labelsTensor))
+    self.init(elements: TensorPair(featuresTensor, labelsTensor))
   }
 }
 
 /// Sequence doesn't have a non-predicated first() method, so we define one.
 /// TODO: Add this to Swift's stdlib.
-extension Sequence where Element == (Tensor<Float>, Tensor<Int32>) {
+extension Sequence where Element == TensorPair<Tensor<Float>, Tensor<Int32>> {
   @inlinable
-  func first() -> (Tensor<Float>, Tensor<Int32>)? {
+  func first() -> TensorPair<Tensor<Float>, Tensor<Int32>>? {
       return first(where: {_ in true})
   }
 }
