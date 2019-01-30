@@ -6,31 +6,9 @@ This repository contains Jupyter notebooks demonstrating TensorFlow in Swift.
 
 ## Docker
 
-1. `docker run -t -i -p 8888:8888 --cap-add SYS_PTRACE gcr.io/swift-tensorflow/jupyter`
-2. It should print out a URL. Open it in your browser. You may have to fix up
-   the URL by replacing `(xxxxxxxxxxx or 127.0.0.1)` with `127.0.0.1`.
-3. In Jupyter, navigate to `swift-tutorials/iris/swift_tensorflow_tutorial.ipynb`.
+Follow the [Using the Docker Container](https://github.com/google/swift-jupyter#using-the-docker-container) instructions to launch swift-jupyter using the docker container, with the following modifications:
 
-If you are curious, the [Dockerfile is in the swift-jupyter
-repository](https://github.com/google/swift-jupyter/tree/master/docker).
+* In the `docker build` command, add the flag `--build-arg swift_tf_url=https://storage.googleapis.com/s4tf-kokoro-artifact-testing/release/swift_for_tensorflow_release_2019-01-30_06-00-00_RC00/swift-tensorflow-DEVELOPMENT-ubuntu18.04.tar.gz`, to use a build that is known to work with the tutorial.
+* In the `docker run` command, use `-v /path/to/tutorial/repo/:/notebooks` to so that the Jupyter in the container can see the tutorials.
 
-## Manual installation
-
-### Requirements
-
-* macOS 10.13.5 or later, with Xcode 10.0 beta or later; OR
-* Ubuntu 16.04 (64-bit); OR
-* other operating systems may work, but you will have to build Swift from
-  sources.
-
-### Installation
-
-Install the swift-jupyter kernel by following the "Installation Instructions
-With TensorFlow toolchain" in the
-[swift-jupyter readme](https://github.com/google/swift-jupyter). **The tutorial currently
-requires exactly the October 5, 2018 toolchain release.**
-
-### Running
-
-Put this repository in the directory where you run `jupyter notebook`, and then
-open `iris/swift_tensorflow_tutorial.ipynb` in Jupyter.
+Open Jupyter and navigate to the tutorial that you want to use.
